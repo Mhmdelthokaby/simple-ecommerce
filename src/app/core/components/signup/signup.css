@@ -1,0 +1,39 @@
+/* Center card with rounded corners and smooth entry */
+.signup-card {
+  max-width: 460px;
+  width: 100%;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.signup-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+}
+
+/* Input focus animation (danger red glow) */
+.form-control:focus {
+  border-color: #dc3545; /* Bootstrap danger */
+  box-shadow: 0 0 8px rgba(220, 53, 69, 0.55);
+  transition: all 0.3s ease;
+}
+
+/* Button hover + active animation (danger red theme) */
+.signup-btn {
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+.signup-btn:hover {
+  transform: scale(1.05);
+  background-color: #bb2d3b; /* darker shade of danger */
+}
+.signup-btn:active {
+  transform: scale(0.97);
+}
+
+/* Title styling */
+.signup-title {
+  color: #dc3545;
+  font-weight: 700;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}

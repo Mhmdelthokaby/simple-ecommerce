@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="image-container">
+    <img [src]="image" [alt]="name" class="w-100"/>
+    <span class="discount" *ngIf="discount > 0">-{{ discount }}%</span>
+  </div>
+
+  <div class="details">
+    <h3 class="name">{{ name }}</h3>
+    <p class="price">
+      <span *ngIf="discount > 0" class="old-price">{{ price | currency }}</span>
+      <span class="new-price">{{ discountedPrice | currency }}</span>
+    </p>
+
+    <!-- ✅ New button -->
+    <button class="btn btn-outline-danger w-100 mt-2"
+            (click)="viewDetails()">
+      View Details
+    </button>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+/* Make nav links change color on hover */
+.navbar-nav .nav-link {
+  margin: 0 0.5rem;
+  transition: all 0.3s ease;
+  color: #000; /* default text color */
+}
+
+/* On hover: change color or background */
+.navbar-nav .nav-link:hover {
+  color: #fff;           /* text color on hover */
+  background-color: #dc3545; /* Bootstrap primary color */
+  border-radius: 5px;    /* rounded edges for background */
+}

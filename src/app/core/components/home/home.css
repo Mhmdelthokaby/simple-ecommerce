@@ -1,0 +1,15 @@
+.hero {
+  min-height: 80vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+}
+
+.hero p {
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+}

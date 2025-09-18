@@ -1,0 +1,121 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="card signup-card shadow-lg p-4">
+    <h2 class="signup-title">Sign Up</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Username -->
+      <div class="mb-3">
+        <label for="username" class="form-label fw-semibold">Username</label>
+        <input
+          type="text"
+          id="username"
+          class="form-control form-control-lg"
+          placeholder="Enter username"
+          formControlName="username"
+          [ngClass]="{ 'is-invalid': username?.invalid && username?.touched }"
+        />
+        @if (username?.invalid && username?.touched) {
+          <div class="invalid-feedback">
+            @if (username?.errors?.['required']) {
+              <span>Username is required</span>
+            }
+          </div>
+        }
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label fw-semibold">Email address</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control form-control-lg"
+          placeholder="Enter email"
+          formControlName="email"
+          [ngClass]="{ 'is-invalid': email?.invalid && email?.touched }"
+        />
+        @if (email?.invalid && email?.touched) {
+          <div class="invalid-feedback">
+            @if (email?.errors?.['required']) {
+              <span>Email is required</span>
+            }
+            @if (email?.errors?.['email']) {
+              <span>Enter a valid email</span>
+            }
+          </div>
+        }
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="password" class="form-label fw-semibold">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control form-control-lg"
+          placeholder="Enter password"
+          formControlName="password"
+          [ngClass]="{ 'is-invalid': password?.invalid && password?.touched }"
+        />
+        @if (password?.invalid && password?.touched) {
+          <div class="invalid-feedback">
+            @if (password?.errors?.['required']) {
+              <span>Password is required</span>
+            }
+            @if (password?.errors?.['minlength']) {
+              <span>At least 6 characters</span>
+            }
+          </div>
+        }
+      </div>
+<!-- Confirm Password -->
+<div class="mb-3">
+  <label for="confirmPassword" class="form-label fw-semibold">Confirm Password</label>
+  <input
+    type="password"
+    id="confirmPassword"
+    class="form-control form-control-lg"
+    placeholder="Confirm password"
+    formControlName="confirmPassword"
+    [ngClass]="{ 'is-invalid': confirmPassword?.invalid && confirmPassword?.touched || form?.errors?.['passwordsMismatch'] }"
+  />
+
+  @if (confirmPassword?.invalid && confirmPassword?.touched) {
+    <div class="invalid-feedback">
+      @if (confirmPassword?.errors?.['required']) {
+        <span>Confirm Password is required</span>
+      }
+    </div>
+  }
+
+  @if (form?.errors?.['passwordsMismatch'] && confirmPassword?.touched) {
+    <div class="invalid-feedback d-block">
+      <span>Passwords do not match</span>
+    </div>
+  }
+</div>
+
+      <!-- Submit -->
+      <div class="d-grid">
+        <button
+          type="submit"
+          class="btn btn-danger btn-lg signup-btn"
+          [disabled]="form.invalid || isLoading"
+        >
+          @if (!isLoading) {
+            <span>Register</span>
+          }
+          @if (isLoading) {
+            <span>Signing up...</span>
+          }
+        </button>
+      </div>
+
+      <!-- Link to Signup -->
+      <p class="text-center mt-3">
+        Already have an account?
+        <a routerLink="/Signup" class="text-danger fw-semibold">Sign In</a>
+      </p>
+    </form>
+  </div>
+</div>

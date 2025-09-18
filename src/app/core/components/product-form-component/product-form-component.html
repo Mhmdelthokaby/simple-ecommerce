@@ -1,0 +1,45 @@
+<div class="container mt-4">
+  <h2>{{ isEditMode ? 'Update Product' : 'Create Product' }}</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input formControlName="name" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Product Code</label>
+      <input formControlName="productCode" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Category</label>
+      <input formControlName="category" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Price</label>
+      <input type="number" formControlName="price" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Quantity</label>
+      <input type="number" formControlName="quantity" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Discount Rate (%)</label>
+      <input type="number" formControlName="discountRate" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Image</label>
+      <input type="file" (change)="onFileSelected($event)" class="form-control" />
+    </div>
+
+    <div *ngIf="imageBase64" class="mb-3">
+      <img [src]="'data:image/jpeg;base64,' + imageBase64" alt="Preview" class="img-thumbnail" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Update' : 'Create' }}</button>
+  </form>
+</div>

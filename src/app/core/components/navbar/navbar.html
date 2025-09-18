@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container">
+    <!-- Left: Logo -->
+    <a class="navbar-brand fw-bold" routerLink="/">MyMarket</a>
+
+    <!-- Toggler for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarContent" aria-controls="navbarContent" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Center: Menu -->
+    <div class="collapse navbar-collapse justify-content-center" id="navbarContent">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/create-product">Create Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/my-products">My Products</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Right: Auth -->
+    <div class="d-flex ms-auto">
+      <ng-container *ngIf="!isLoggedIn">
+        <a class="btn btn-outline-danger me-2" routerLink="/login">Login</a>
+        <a class="btn btn-danger" routerLink="/signup">Register</a>
+      </ng-container>
+      <ng-container *ngIf="isLoggedIn">
+        <button class="btn btn-danger" (click)="logout()">Logout</button>
+      </ng-container>
+    </div>
+  </div>
+</nav>

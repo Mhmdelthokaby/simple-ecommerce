@@ -1,0 +1,30 @@
+/* Center card with rounded corners and smooth entry */
+.login-card {
+  max-width: 420px;
+  width: 100%;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.login-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Input focus animation (danger red glow) */
+.form-control:focus {
+  border-color: #dc3545; /* Bootstrap danger */
+  box-shadow: 0 0 8px rgba(220, 53, 69, 0.5);
+  transition: all 0.3s ease;
+}
+
+/* Button hover + active animation (danger red theme) */
+.login-btn {
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+.login-btn:hover {
+  transform: scale(1.05);
+  background-color: #bb2d3b; /* darker shade of danger */
+}
+.login-btn:active {
+  transform: scale(0.97);
+}

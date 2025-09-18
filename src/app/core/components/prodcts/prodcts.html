@@ -1,0 +1,35 @@
+<div class="container py-4">
+  <h2 class="fw-bold mb-4">My Products</h2>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="text-center py-5">
+    <div class="spinner-border text-danger" role="status"></div>
+    <p class="mt-2">Loading your products...</p>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+  </div>
+
+  <!-- Products grid -->
+  <div *ngIf="!loading && !error">
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-4 col-sm-6"
+           *ngFor="let product of myProducts">
+        <app-product-card
+          [id]="product.id"
+          [name]="product.name"
+          [price]="product.price"
+          [discount]="product.discountRate"
+          [image]="product.image">
+        </app-product-card>
+      </div>
+    </div>
+
+    <!-- Empty state -->
+    <div *ngIf="myProducts.length === 0" class="text-center text-muted py-5">
+      <p>No products found. <a routerLink="/create-product">Create one?</a></p>
+    </div>
+  </div>
+</div>
